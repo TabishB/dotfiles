@@ -1,5 +1,10 @@
 PATH="/usr/local/bin:$PATH"
 PATH="/opt/homebrew/bin:$PATH"
 
+# zsh plugins
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# starship - should be EOF
 eval "$(starship init zsh)"
 
