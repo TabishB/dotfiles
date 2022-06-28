@@ -1,0 +1,5 @@
+PATH="/usr/local/bin:$PATH"
+PATH="/opt/homebrew/bin:$PATH"
+
+eval "$(starship init zsh)"
+
