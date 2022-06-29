@@ -1,10 +1,22 @@
+# path variables
 PATH="/usr/local/bin:$PATH"
 PATH="/opt/homebrew/bin:$PATH"
+
+# zsh completion
+autoload -U compinit
+compinit -i
 
 # zsh plugins
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# starship - should be EOF
+# starship
 eval "$(starship init zsh)"
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# poetry
+export PATH="$HOME/.poetry/bin:$PATH"
