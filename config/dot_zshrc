@@ -2,12 +2,24 @@
 PATH="/usr/local/bin:$PATH"
 PATH="/opt/homebrew/bin:$PATH"
 
+# homebrew completion
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  autoload -Uz compinit
+  compinit
+fi
+
+# poetry custom fpath
+fpath+=~/.zfunc
+
 # zsh completion
 autoload -U compinit
 compinit -i
 
 # zsh plugins
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # starship
