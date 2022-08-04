@@ -2,6 +2,34 @@
 PATH="/usr/local/bin:$PATH"
 PATH="/opt/homebrew/bin:$PATH"
 
+# environment variables
+export VISUAL=nvim
+export DIRENV_LOG_FORMAT=
+
+# shell aliases
+alias c="clear"
+
+# git aliases
+alias gs="git status"
+alias ga="git add ."
+alias gc="git commit -m"
+alias gp="git pull"
+alias gph="git push"
+alias gb="git branch"
+alias gch="git checkout"
+alias gnb="git checkout -b"
+
+# docker aliases (compose v2)
+alias dc="docker compose"
+alias dcu="docker compose up"
+alias dcb="docker compose up --build"
+alias dcd="docker compose down"
+
+# poetry aliases
+alias pr="poetry run"
+alias ps="poetry shell"
+alias pu="poetry update"
+
 # homebrew completion
 if type brew &>/dev/null
 then
@@ -32,3 +60,12 @@ eval "$(pyenv init -)"
 
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# direnv 
+eval "$(direnv hook zsh)"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/libpq/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libpq/include"
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
